@@ -3,9 +3,6 @@
   "version": "0.0.1",
   "description": "Frontend Calendar system",
   "author": "Dylan Vorster",
-  "contributors": [
-	"Niko Lubbe"
-  ],
   "license": "ISC",
   "main": "src/main.js",
   "dependencies": {
@@ -13,6 +10,7 @@
     "react": "^0.13.2"
   },
   "devDependencies": {
-    "express": "^4.12.4"
+    "express": "^4.12.4",
+    "storm-serve": "git+https://git@github.com/projectstorm/serve.git"
   }
 }
