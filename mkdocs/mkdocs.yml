@@ -1,0 +1,5 @@
+site_name: React Calendar
+theme_dir: theme
+site_dir: ../docs
+pages:
+    - Home: index.md
