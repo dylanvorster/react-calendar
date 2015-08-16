@@ -1,0 +1,58 @@
+.storm-calendar{
+	
+	&-workspace{
+		.menubar{
+			display: flex;
+			justify-content:space-around;
+			.heading{
+				font-size: 20px;
+			}
+			.buttons{
+				display: flex;
+				align-self: center;
+				cursor: pointer;
+				>*{
+					padding: 5px;
+				}
+			}
+			.switcher{
+				display: flex;
+			}
+		}
+	}
+
+	&-week{
+		display: flex;
+	}
+
+	&-day{
+		width: 14.28%;
+		flex-shrink: 1;
+		flex-grow: 1;
+		.heading{
+			.number{
+				text-align: right;
+			}
+		}
+	}
+	&-month{
+
+		.weekDays{
+			display: flex;
+			>*{
+				width: 14.28%;
+				flex-shrink: 1;
+				flex-grow: 1;
+			}
+		}
+	}
+
+	&-year{
+		display: flex;
+		flex-wrap: wrap;
+		justify-content:space-around;
+
+		.yearmonth{
+		}
+	}
+}
