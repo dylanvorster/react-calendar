@@ -1,0 +1,14 @@
+{
+    "docs": [
+        {
+            "location": "/", 
+            "text": "Storm Calendar\n\n\nFor now, see the test directory for an example.", 
+            "title": "Home"
+        }, 
+        {
+            "location": "/#storm-calendar", 
+            "text": "For now, see the test directory for an example.", 
+            "title": "Storm Calendar"
+        }
+    ]
+}
