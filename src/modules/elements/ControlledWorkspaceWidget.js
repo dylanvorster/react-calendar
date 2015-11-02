@@ -9,6 +9,7 @@ var Toolkit = require("../Toolkit");
 module.exports = React.createClass({
 	getDefaultProps: function(){
 		return {
+			daySelected: null,
 			dayLoaded: function(date){
 				console.log("Day Loaded: ".date);
 			},
@@ -47,7 +48,10 @@ module.exports = React.createClass({
 			this.state.month = ob.month;
 		}
 		else if(this.state.state === 'Week'){
-			
+			this.state.week++;
+			if(this.state.week > 6){
+				this.state.week = 1;
+			}
 		}
 		else if(this.state.state === 'Day'){
 		}
@@ -63,12 +67,19 @@ module.exports = React.createClass({
 			this.state.month = ob.month;
 		}
 		else if(this.state.state === 'Week'){
+			this.state.week--;
+			if(this.state.week < 1){
+				this.state.week = 6;
+			}
 		}
 		else if(this.state.state === 'Day'){
 		}
 		this.setState(this.state);
 	},
 	daySelected: function(date){
+		if(this.props.daySelected){
+			this.props.daySelected(date);
+		}
 		this.state.state = 'Day';
 		this.loadDate(date);
 	},
@@ -106,7 +117,8 @@ module.exports = React.createClass({
 			content = React.createElement(ControlledMonth,{
 				year: this.state.year,
 				month: this.state.month,
-				week:1,dayLoaded:this.props.dayLoaded,
+				week:this.state.week,
+				dayLoaded:this.props.dayLoaded,
 				daySelected: this.daySelected
 			});
 			heading = this.state.year+" "+Toolkit.getMonthName(this.state.month)+": week "+this.state.week;

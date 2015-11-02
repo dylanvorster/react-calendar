@@ -27,7 +27,7 @@ module.exports = React.createClass({
 		return React.createElement(DayWidget,{
 			onClick: function(){
 				console.log("i am a day");
-				this.props.daySelected(date);
+				this.props.daySelected(date,this.props);
 			}.bind(this),
 			date:date,
 			ghost: ghost,
