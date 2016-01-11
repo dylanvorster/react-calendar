@@ -15,8 +15,8 @@ module.exports = React.createClass({
 			dayLoaded: function(date){
 			},
 			startWeekOn: 0,
-			month: 7,
-			year: 2015,
+			month: (new Date()).getMonth()+1,
+			year: new Date().getFullYear(),
 			week: null,
 			micro: false
 		};

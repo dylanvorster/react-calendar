@@ -13,7 +13,7 @@ module.exports = React.createClass({
 			dayLoaded: function(date){
 			},
 			state:'Year', 
-			year: 2015,
+			year: new Date().getFullYear(),
 			month: 1,
 			week: 1,
 			day: 1
