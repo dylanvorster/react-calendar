@@ -11,7 +11,6 @@ module.exports = React.createClass({
 		return {
 			daySelected: null,
 			dayLoaded: function(date){
-				console.log("Day Loaded: ".date);
 			},
 			state:'Year', 
 			year: 2015,

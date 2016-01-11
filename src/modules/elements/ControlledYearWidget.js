@@ -10,15 +10,12 @@ module.exports = React.createClass({
 	getDefaultProps: function(){
 		return {
 			monthSelected: function(month){
-				console.log("Month Clicked: ",month);
 			},
 			daySelected: function(date){
-				console.log("Date Selected: ",date);
 			},
 			dayLoaded: function(date){
-				console.log("Day Loaded: ",date);
 			},
-			year: 2015
+			year: new Date().getFullYear()
 		};
 	},
 	render: function(){

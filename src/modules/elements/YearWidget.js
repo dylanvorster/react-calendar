@@ -7,7 +7,6 @@ module.exports = React.createClass({
 	getDefaultProps:function(){
 		return {
 			monthSelected: function(month){
-				console.log("Month Clicked: ",month);
 			},
 			months: {}
 		};

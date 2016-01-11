@@ -11,10 +11,8 @@ module.exports = React.createClass({
 	getDefaultProps: function(){
 		return {
 			daySelected: function(date){
-				console.log("Day Selected: ",date);
 			},
 			dayLoaded: function(date){
-				console.log("Day Loaded: ",date);
 			},
 			startWeekOn: 0,
 			month: 7,
@@ -26,7 +24,6 @@ module.exports = React.createClass({
 	generateDay: function(date,ghost){
 		return React.createElement(DayWidget,{
 			onClick: function(){
-				console.log("i am a day");
 				this.props.daySelected(date,this.props);
 			}.bind(this),
 			date:date,
