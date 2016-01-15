@@ -3,11 +3,12 @@ var DayWidget = require("./DayWidget");
 var WeekWidget = require("./WeekWidget");
 var MonthWidget = require("./MonthWidget");
 var Toolkit = require("../Toolkit");
-var _merge = require("lodash/object/merge");
+var _merge = require("lodash/merge");
 /**
  * @author Dylan Vorster
  */
 module.exports = React.createClass({
+	displayName: "ControlledMonthWidget",
 	getDefaultProps: function(){
 		return {
 			daySelected: function(date){
@@ -23,6 +24,7 @@ module.exports = React.createClass({
 	},
 	generateDay: function(date,ghost){
 		return React.createElement(DayWidget,{
+			key: date.getDate(),
 			onClick: function(){
 				this.props.daySelected(date,this.props);
 			}.bind(this),
@@ -58,7 +60,7 @@ module.exports = React.createClass({
 			
 			//push to the stack
 			if(currentWeekDays.length === 7){
-				weeks.push(React.createElement(WeekWidget,{days:currentWeekDays}));
+				weeks.push(React.createElement(WeekWidget,{key:i,days:currentWeekDays}));
 				currentWeekDays = [];
 			}
 			var date = new Date(this.props.year, this.props.month-1, i);
@@ -76,7 +78,7 @@ module.exports = React.createClass({
 				currentWeekDays.push(this.generateDay(date,true));
 			}
 			
-			weeks.push(React.createElement(WeekWidget,{days:currentWeekDays}));
+			weeks.push(React.createElement(WeekWidget,{key:'last',days:currentWeekDays}));
 		}
 		
 		//are we filtering weeks

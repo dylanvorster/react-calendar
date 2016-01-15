@@ -3,7 +3,7 @@ var React = require("react");
  * @author Dylan Vorster
  */
 module.exports = React.createClass({
-	
+	displayName: "YearWidget",
 	getDefaultProps:function(){
 		return {
 			monthSelected: function(month){
@@ -15,7 +15,7 @@ module.exports = React.createClass({
 		return (
 			React.DOM.div({className:'storm-calendar-year'},
 				Object.keys(this.props.months).map(function(key){
-					return React.DOM.div({className:'yearmonth'},
+					return React.DOM.div({className:'yearmonth',key: key},
 						React.DOM.div({className:'title',onClick: function(){
 							this.props.monthSelected(this.props.months[key].props.month);
 						}.bind(this)},key),

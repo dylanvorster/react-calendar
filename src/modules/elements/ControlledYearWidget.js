@@ -2,11 +2,12 @@ var React = require("react");
 var YearWidget = require("./YearWidget");
 var ControlledMonthWidget = require("./ControlledMonthWidget");
 var Toolkit = require("../Toolkit");
-var _merge = require("lodash/object/merge");
+var _merge = require("lodash/merge");
 /**
  * @author Dylan Vorster
  */
 module.exports = React.createClass({
+	displayName: "ControlledYearWidget",
 	getDefaultProps: function(){
 		return {
 			monthSelected: function(month){

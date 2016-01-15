@@ -3,6 +3,7 @@ var React = require("react");
  * @author Dylan Vorster
  */
 module.exports = React.createClass({
+	displayName: "WeekWidget",
 	getDefaultProps: function(){
 		return {
 			days: []

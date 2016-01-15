@@ -7,11 +7,13 @@ var Toolkit = require("../Toolkit");
  * @author Dylan Vorster
  */
 module.exports = React.createClass({
+	displayName: "ControlledWorkspaceWidget",
 	getDefaultProps: function(){
 		return {
 			daySelected: null,
 			dayLoaded: function(date){
 			},
+			enableDayView: true,
 			state:'Year', 
 			year: new Date().getFullYear(),
 			month: 1,
@@ -79,7 +81,9 @@ module.exports = React.createClass({
 		if(this.props.daySelected){
 			this.props.daySelected(date);
 		}
-		this.state.state = 'Day';
+		if(this.props.enableDayView){
+			this.state.state = 'Day';
+		}
 		this.loadDate(date);
 	},
 	render: function(){
@@ -134,7 +138,7 @@ module.exports = React.createClass({
 					React.DOM.div({className:'heading'},heading),
 					React.DOM.div({className:'buttons'},
 						buttons.map(function(key){
-							return React.DOM.div({className:'button',onClick: function(){
+							return React.DOM.div({key: key,className:'button',onClick: function(){
 								this.state.state = key;
 								this.setState(this.state);
 							}.bind(this)},key);

@@ -4,6 +4,7 @@ var Toolkit = require("../Toolkit");
  * @author Dylan Vorster
  */
 module.exports = React.createClass({
+	displayName: "MonthWidget",
 	getDefaultProps: function(){
 		return {
 			startWeekOn: 0,
@@ -20,7 +21,7 @@ module.exports = React.createClass({
 			if(this.props.micro){
 				dow = dow.charAt(0);
 			}
-			weekDayNames.push(React.DOM.div({className:'weekDay'},dow));
+			weekDayNames.push(React.DOM.div({key: i,className:'weekDay'},dow));
 			currentDay++;
 			if(currentDay > 6){
 				currentDay = 0;

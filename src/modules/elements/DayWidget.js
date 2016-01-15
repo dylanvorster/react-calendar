@@ -1,9 +1,10 @@
 var React = require("react");
-var _merge = require("lodash/object/merge");
+var _merge = require("lodash/merge");
 /**
  * @author Dylan Vorster
  */
 module.exports = React.createClass({
+	displayName: "DayWidget",
 	getDefaultProps: function(){
 		return {
 			ghost: false,
