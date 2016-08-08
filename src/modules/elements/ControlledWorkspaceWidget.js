@@ -19,6 +19,9 @@ module.exports = React.createClass({
 			getDayProps: function(date){
 				return {};
 			},
+			dateChanged: function(state){
+				
+			},
 			enableDayView: true,
 			state:'Year', 
 			year: new Date().getFullYear(),
@@ -62,6 +65,7 @@ module.exports = React.createClass({
 		}
 		else if(this.state.state === 'Day'){
 		}
+		this.props.dateChanged(this.state);
 		this.setState(this.state);
 	},
 	goBackward: function(){
@@ -81,6 +85,7 @@ module.exports = React.createClass({
 		}
 		else if(this.state.state === 'Day'){
 		}
+		this.props.dateChanged(this.state);
 		this.setState(this.state);
 	},
 	daySelected: function(date){
