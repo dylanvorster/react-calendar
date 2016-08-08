@@ -15,6 +15,9 @@ module.exports = React.createClass({
 			},
 			dayLoaded: function(date){
 			},
+			getDayProps: function(date){
+				return {};
+			},
 			startWeekOn: 0,
 			month: (new Date()).getMonth()+1,
 			year: new Date().getFullYear(),
@@ -23,15 +26,16 @@ module.exports = React.createClass({
 		};
 	},
 	generateDay: function(date,ghost){
-		return React.createElement(DayWidget,{
-			key: date.getDate(),
-			onClick: function(){
-				this.props.daySelected(date,this.props);
-			}.bind(this),
-			date:date,
-			ghost: ghost,
-			micro: this.props.micro
-		},this.props.dayLoaded(date));
+		var props = this.props.getDayProps(date,this.props);
+		props.key = date.getDate();
+		props.onClick = function(){
+			this.props.daySelected(date,this.props);
+		}.bind(this);
+		props.date = date;
+		props.ghost = ghost;
+		props.micro = this.props.micro;
+		
+		return React.createElement(DayWidget,props,this.props.dayLoaded(date));
 	},
 	render: function(){
 		

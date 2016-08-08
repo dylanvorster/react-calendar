@@ -13,6 +13,12 @@ module.exports = React.createClass({
 			daySelected: null,
 			dayLoaded: function(date){
 			},
+			generateDay: function(day,mode){
+				
+			},
+			getDayProps: function(date){
+				return {};
+			},
 			enableDayView: true,
 			state:'Year', 
 			year: new Date().getFullYear(),
@@ -98,6 +104,7 @@ module.exports = React.createClass({
 			content = React.createElement(ControlledYear,{
 				year: this.state.year,
 				dayLoaded:this.props.dayLoaded,
+				getDayProps:this.props.getDayProps,
 				daySelected: this.daySelected,
 				monthSelected: function(month){
 					this.state.month = month;
@@ -112,6 +119,7 @@ module.exports = React.createClass({
 				year: this.state.year,
 				month: this.state.month,
 				dayLoaded:this.props.dayLoaded,
+				getDayProps:this.props.getDayProps,
 				daySelected: this.daySelected
 			});
 			heading = this.state.year+" "+Toolkit.getMonthName(this.state.month);
@@ -122,6 +130,7 @@ module.exports = React.createClass({
 				month: this.state.month,
 				week:this.state.week,
 				dayLoaded:this.props.dayLoaded,
+				getDayProps:this.props.getDayProps,
 				daySelected: this.daySelected
 			});
 			heading = this.state.year+" "+Toolkit.getMonthName(this.state.month)+": week "+this.state.week;

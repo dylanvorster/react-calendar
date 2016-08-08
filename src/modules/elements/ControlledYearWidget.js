@@ -16,6 +16,9 @@ module.exports = React.createClass({
 			},
 			dayLoaded: function(date){
 			},
+			getDayProps: function(date){
+				return {};
+			},
 			year: new Date().getFullYear()
 		};
 	},

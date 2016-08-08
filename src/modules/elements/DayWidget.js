@@ -10,7 +10,8 @@ module.exports = React.createClass({
 			ghost: false,
 			date: new Date(),
 			entries: [],
-			micro: false
+			micro: false,
+			heading: null
 		};
 	},
 	render: function(){
@@ -28,6 +29,7 @@ module.exports = React.createClass({
 		return (
 			React.DOM.div(_merge({className:'storm-calendar-day '+(this.props.ghost?'ghost':'')+' '+(isToday?'today':'')},this.props),
 				React.DOM.div({className:'heading'},
+					React.DOM.div({className:'title'},this.props.heading),
 					React.DOM.div({className:'number'},this.props.date.getDate())
 				),
 				React.DOM.div({className:'content'},this.props.children)
